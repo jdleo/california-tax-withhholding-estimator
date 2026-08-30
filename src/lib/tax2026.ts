@@ -233,7 +233,7 @@ export function federalTax(
     taxable,
     taxBeforeCredits: tax,
     net,
-    marginal: marginalRate(taxable, brackets),
+    marginal: taxable <= 0 ? 0 : marginalRate(taxable, brackets),
     ctcApplied,
     refundableCtc,
     otherDependentCredit: otherCredit,
@@ -293,7 +293,7 @@ export function californiaTax(
     taxable,
     taxBeforeCredits: tax,
     net,
-    marginal: marginalRate(taxable, brackets),
+    marginal: taxable <= 0 ? 0 : marginalRate(taxable, brackets),
     exemptionCredits: credits,
     mentalHealthTax,
   };
