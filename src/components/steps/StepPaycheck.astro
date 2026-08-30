@@ -1,0 +1,48 @@
+---
+import CurrencyInput from '../CurrencyInput.astro';
+---
+
+<section class="step card hidden" data-title="Your Paycheck">
+  <h2>Your Paycheck</h2>
+  <p class="muted">How you're normally paid, so we can project the rest of 2026.</p>
+
+  <label class="field">
+    <span class="field-label">When did you last get paid? <span class="req">Required</span></span>
+    <input type="date" id="last-pay-date" />
+    <span class="muted small">We'll anchor your pay schedule to this date to find your next payday and count how many paychecks are left in 2026.</span>
+  </label>
+
+  <label class="field">
+    <span class="field-label">What day are you normally paid? <span class="req">Required</span></span>
+    <select id="pay-freq">
+      <option value="">Choose a pay frequency…</option>
+      <option value="weekly">Weekly</option>
+      <option value="biweekly">Every 2 weeks (biweekly)</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </label>
+
+  <CurrencyInput
+    id="gross-per-period"
+    label="How much do you make before taxes, per paycheck?"
+    required
+  />
+
+  <CurrencyInput
+    id="fed-wh-per-period"
+    label="Federal tax typically taken out per paycheck"
+    required
+  />
+
+  <CurrencyInput
+    id="ca-wh-per-period"
+    label="California tax typically taken out per paycheck"
+    required
+  />
+
+  <p class="error hidden" id="err-3"></p>
+  <div class="nav">
+    <button type="button" class="btn nav-back">Back</button>
+    <button type="button" class="btn primary nav-next">Continue</button>
+  </div>
+</section>

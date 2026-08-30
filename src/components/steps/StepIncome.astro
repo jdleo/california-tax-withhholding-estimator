@@ -1,0 +1,24 @@
+---
+import CurrencyInput from '../CurrencyInput.astro';
+---
+
+<section class="step card hidden" data-title="Income So Far">
+  <h2>Income So Far</h2>
+  <p class="muted">Everything so far in 2026, from your last paystub (year-to-date amounts).</p>
+
+  <CurrencyInput
+    id="ytd-gross"
+    label="How much have you made this year total (gross, before taxes)?"
+    required
+  />
+
+  <CurrencyInput id="ytd-ca" label="How much have you paid in California taxes so far?" required />
+
+  <CurrencyInput id="ytd-fed" label="How much have you paid in federal taxes so far?" required />
+
+  <p class="error hidden" id="err-2"></p>
+  <div class="nav">
+    <button type="button" class="btn nav-back">Back</button>
+    <button type="button" class="btn primary nav-next">Continue</button>
+  </div>
+</section>

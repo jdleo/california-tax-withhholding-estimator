@@ -1,0 +1,93 @@
+---
+import ChoiceGroup from '../ChoiceGroup.astro';
+---
+
+<section class="step card hidden" data-title="About You">
+  <h2>About You</h2>
+  <p class="muted">
+    Tell us about yourself. Your responses will help us learn which tax benefits you could be
+    eligible for, which can impact how much tax you withhold.
+  </p>
+
+  <ChoiceGroup
+    name="age65"
+    label="Will you be 65 years old or older on January 1, 2027?"
+    required
+  />
+
+  <ChoiceGroup name="blind" label="Are you blind?" required />
+
+  <fieldset class="q">
+    <legend>Do you plan to claim dependents on your 2026 tax return? <span class="req">Required</span></legend>
+    <details class="hint">
+      <summary>Who can I claim as a dependent?</summary>
+      <p>A qualifying child or qualifying relative who meets the IRS tests: they rely on you for more than half their support, meet relationship, age, residency, and income rules, and aren't claimed by someone else.</p>
+    </details>
+    <div class="choice">
+      <label><input type="radio" name="dependents" value="yes" /><span>Yes</span></label>
+      <label><input type="radio" name="dependents" value="no" /><span>No</span></label>
+    </div>
+    <div id="dependents-block" class="sub-block hidden">
+      <label class="field">
+        <span class="field-label">Dependents under age 17 (for the Child Tax Credit)</span>
+        <input type="number" id="children-under17" min="0" max="20" step="1" placeholder="0" />
+      </label>
+      <label class="field">
+        <span class="field-label">Other dependents (age 17+, or adult relatives)</span>
+        <input type="number" id="other-dependents" min="0" max="20" step="1" placeholder="0" />
+      </label>
+    </div>
+  </fieldset>
+
+  <ChoiceGroup
+    name="isDependent"
+    label="Can you be claimed as a dependent on someone else's 2026 tax return?"
+    required
+    hintTitle="How do I know if I'm someone's dependent?"
+    hint="If someone provides more than half of your financial support and you meet the IRS dependency tests (income, age, residency), they may be able to claim you."
+  />
+
+  <fieldset class="q">
+    <legend>Which filing status will you use to file federal taxes in 2026? <span class="req">Required</span></legend>
+    <details class="hint">
+      <summary>Which filing status should I use?</summary>
+      <p>Generally based on your marital status on December 31, 2026. Head of Household and Qualified Surviving Spouse have additional IRS requirements.</p>
+    </details>
+    <label class="field">
+      <select id="filing-status">
+        <option value="">Choose a filing status…</option>
+        <option value="single">Single</option>
+        <option value="mfj">Married Filing Jointly</option>
+        <option value="mfs">Married Filing Separately</option>
+        <option value="hoh">Head of Household</option>
+        <option value="qss">Qualified Surviving Spouse</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <div id="spouse-block" class="sub-block hidden">
+    <p class="spouse-note">If you plan to file using Married Filing Jointly, we need to ask more questions about your spouse.</p>
+
+    <ChoiceGroup
+      name="s_age65"
+      label="Will your spouse be 65 years old or older on January 1, 2027?"
+      required
+    />
+
+    <ChoiceGroup name="s_blind" label="Is your spouse blind?" required />
+
+    <ChoiceGroup
+      name="s_dependent"
+      label="Can your spouse be claimed as a dependent on someone else's 2026 tax return?"
+      required
+      hintTitle="How do I know if my spouse could be a dependent?"
+      hint="The same IRS dependency tests apply — someone else must provide more than half of your spouse's support and meet the qualifying tests."
+    />
+  </div>
+
+  <p class="error hidden" id="err-1"></p>
+  <div class="nav">
+    <button type="button" class="btn nav-back">Back</button>
+    <button type="button" class="btn primary nav-next">Continue</button>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+---
+
+<section class="step card hidden" data-title="Upcoming Vests">
+  <h2>Upcoming Vests <span class="optional">Optional</span></h2>
+  <p class="muted">
+    Enter any upcoming equity vests — date and dollar amount. Add as many as you want. Vest
+    amounts are taxed as ordinary income when they vest.
+  </p>
+
+  <div class="sub-block">
+    <p class="sub-title">Withholding on vests</p>
+    <p class="muted small">
+      By default we assume <b>40%</b> of each vest is withheld when it vests (the typical provider default),
+      split between federal and CA in the same ratio as your paycheck withholding. If your last vest was
+      withheld at different rates, enter them here instead.
+    </p>
+    <div class="pct-pair">
+      <label class="field">
+        <span class="field-label">Last vest: % withheld for federal <span class="opt">Optional</span></span>
+        <span class="money pct"><input type="number" id="vest-fed-pct" min="0" max="100" step="0.1" placeholder="40" /><span class="suffix">%</span></span>
+      </label>
+      <label class="field">
+        <span class="field-label">% withheld for CA <span class="opt">Optional</span></span>
+        <span class="money pct"><input type="number" id="vest-ca-pct" min="0" max="100" step="0.1" placeholder="10" /><span class="suffix">%</span></span>
+      </label>
+    </div>
+  </div>
+
+  <div id="vest-list">
+    <div class="vest-row">
+      <input type="date" class="vest-date" aria-label="Vest date" />
+      <span class="money grow"><span class="prefix">$</span><input type="number" class="vest-amount" min="0" step="0.01" placeholder="0.00" aria-label="Vest amount" /></span>
+      <button type="button" class="icon-btn remove-vest" aria-label="Remove vest">×</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn" id="add-vest">+ Add another vest</button>
+
+  <label class="field">
+    <span class="field-label">Stock price variance</span>
+    <span class="money pct"><input type="number" id="variance-pct" min="0" max="100" step="1" value="20" /><span class="suffix">±%</span></span>
+    <span class="muted small">Results will show a range assuming vest values could come in ± this much.</span>
+  </label>
+
+  <p class="error hidden" id="err-4"></p>
+  <div class="nav">
+    <button type="button" class="btn nav-back">Back</button>
+    <button type="button" class="btn primary nav-next">Calculate my results</button>
+  </div>
+</section>

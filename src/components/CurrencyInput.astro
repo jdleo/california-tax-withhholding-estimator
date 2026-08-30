@@ -1,0 +1,20 @@
+---
+interface Props {
+  id: string;
+  label: string;
+  required?: boolean;
+  note?: string;
+  min?: string;
+  max?: string;
+  step?: string;
+  placeholder?: string;
+}
+
+const { id, label, required = false, note, min = '0', max, step = '0.01', placeholder = '0.00' } = Astro.props;
+---
+
+<label class="field">
+  <span class="field-label">{label}{required && <span class="req">Required</span>}</span>
+  <span class="money"><span class="prefix">$</span><input type="number" id={id} min={min} max={max} step={step} placeholder={placeholder} /></span>
+  {note && <span class="muted small">{note}</span>}
+</label>

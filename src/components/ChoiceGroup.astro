@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  label: string;
+  required?: boolean;
+  hintTitle?: string;
+  hint?: string;
+}
+
+const { name, label, required = false, hintTitle, hint } = Astro.props;
+---
+
+<fieldset class="q">
+  <legend>{label}{required && <span class="req">Required</span>}</legend>
+  {hint && hintTitle && (
+    <details class="hint">
+      <summary>{hintTitle}</summary>
+      <p>{hint}</p>
+    </details>
+  )}
+  <div class="choice">
+    <label><input type="radio" name={name} value="yes" /><span>Yes</span></label>
+    <label><input type="radio" name={name} value="no" /><span>No</span></label>
+  </div>
+</fieldset>
