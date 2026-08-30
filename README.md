@@ -4,6 +4,8 @@ Super simple app I made for myself. I was inspired by the [Federal Tax Withholdi
 
 View the app here: https://taxes-are-annoying.vercel.app
 
+![App screenshot](docs/screenshot.png)
+
 1. Enter some preliminary questions to see hidden tax benefits
 2. Enter your filing status and dependents
 3. Enter how much you've made and how much you've paid on taxes

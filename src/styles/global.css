@@ -112,6 +112,11 @@ legend { font-weight: 600; font-size: 16px; padding: 0; margin-bottom: 12px; lin
 .spouse-note { font-size: 14.5px; color: var(--gray); margin: 0 0 4px; }
 .pct-pair { display: flex; gap: 12px; margin-top: 4px; }
 .pct-pair .field { flex: 1; margin-top: 8px; }
+.pct-pair .field-label {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 2.6em; margin-bottom: 7px;
+}
+.pct-pair .field-label .opt { margin-left: 0; flex-shrink: 0; }
 
 .field { display: block; margin-top: 18px; }
 .field-label { display: block; font-size: 13px; font-weight: 550; color: var(--gray-500); margin-bottom: 7px; }
